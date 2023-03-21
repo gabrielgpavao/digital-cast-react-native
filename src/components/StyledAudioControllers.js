@@ -8,7 +8,7 @@ export const StyledAudioController = styled.View`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 80px;
+    margin-top: 80px;
 `
 
 export const StyledButton = styled.View`
