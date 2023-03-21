@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { Player } from './pages/Player/Player';
 import { StyledMainBackground } from './StyledMainBackground';
 
 export function Main () {
@@ -6,6 +7,7 @@ export function Main () {
         <>
             <StatusBar/>
             <StyledMainBackground>
+                <Player/>
             </StyledMainBackground>
         </>
     )
