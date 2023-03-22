@@ -26,7 +26,7 @@ export function Player() {
 						padding: 20,
 					}}
 				>
-					<Playlist/>
+					<Playlist actionSheetRef={actionSheetRef}/>
 				</ActionSheet>
 			</SafeAreaView>
 		</SafeAreaProvider>

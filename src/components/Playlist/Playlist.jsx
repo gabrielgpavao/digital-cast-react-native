@@ -4,8 +4,12 @@ import { StyledAlbumImage, StyledItemInfo, StyledItemInfoDate, StyledItemInfoTit
 import { useAudioContext } from '../../hooks/useAudioContext'
 import { api } from '../../services/api'
 
-export function Playlist () {
+export function Playlist ({ actionSheetRef }) {
     const { playlist, setPlaylist, playSong } = useAudioContext()
+
+    function hideModal () {
+		actionSheetRef.current?.hide()
+	}
 
     useEffect(() => {
         async function loadAudio () {
@@ -24,7 +28,13 @@ export function Playlist () {
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={() => <StyledItemSeparator/>}
                 renderItem={({ item }) => (
-                    <StyledPlaylist id={item.id} onPress={() => {playSong(item, true)}}>
+                    <StyledPlaylist
+                        id={item.id}
+                        onPress={() => {
+                            playSong(item, true)
+                            hideModal()
+                        }}
+                    >
                         <StyledAlbumImage source={{
                             uri: item.imageSource
                         }}/>
