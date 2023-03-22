@@ -11,15 +11,7 @@ export function Playlist ({ actionSheetRef }) {
 		actionSheetRef.current?.hide()
 	}
 
-    useEffect(() => {
-        async function loadAudio () {
-            const response = (await api.get('/playlist')).data || undefined
-            if (response) {
-                setPlaylist(response)
-            }
-        }
-        loadAudio()
-    }, [])
+    
     
     return (
         <ScrollView>
