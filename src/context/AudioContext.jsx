@@ -16,15 +16,15 @@ export function AudioProvider ({ children }) {
         
         setCurrentAudioInfo(source)
 
-        const { audio } = Audio.Sound.createAsync({
+        const { sound } = await Audio.Sound.createAsync({
             uri: source.uri
         })
 
-        setCurrentAudio(audio)
+        setCurrentAudio(sound)
 
         if (autoPlay) {
             setIsPlaying(true)
-            await audio.playAsync()
+            await sound.playAsync()
         }
     }
 
@@ -39,7 +39,7 @@ export function AudioProvider ({ children }) {
     }
     
     return (
-        <AudioContext.Provider value={{ playlist, setPlaylist, currentAudioInfo, playSong, toggleAudio }}>
+        <AudioContext.Provider value={{ playlist, setPlaylist, currentAudioInfo, playSong, toggleAudio, isPlaying }}>
             {children}
         </AudioContext.Provider>
     )

@@ -5,7 +5,7 @@ import { useAudioContext } from '../../hooks/useAudioContext'
 import { api } from '../../services/api'
 
 export function Playlist () {
-    const { playlist, setPlaylist } = useAudioContext()
+    const { playlist, setPlaylist, playSong } = useAudioContext()
 
     useEffect(() => {
         async function loadAudio () {
@@ -24,7 +24,7 @@ export function Playlist () {
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={() => <StyledItemSeparator/>}
                 renderItem={({ item }) => (
-                    <StyledPlaylist id={item.id}>
+                    <StyledPlaylist id={item.id} onPress={() => {playSong(item, true)}}>
                         <StyledAlbumImage source={{
                             uri: item.imageSource
                         }}/>

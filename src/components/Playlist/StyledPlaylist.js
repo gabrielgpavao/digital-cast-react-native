@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const StyledPlaylist = styled.View`
+export const StyledPlaylist = styled.TouchableOpacity`
     display: flex;
     flex-direction: row;
     margin: 20px 0;

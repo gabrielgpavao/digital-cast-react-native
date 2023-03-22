@@ -5,8 +5,11 @@ import {
 	StyledControllers,
 } from '../StyledAudioControllers';
 import { Feather } from '@expo/vector-icons';
+import { useAudioContext } from '../../hooks/useAudioContext';
 
 export function AudioControllers() {
+	const { isPlaying, toggleAudio } = useAudioContext()
+	
 	return (
 		<StyledAudioController>
 			<StyledButton>
@@ -14,8 +17,8 @@ export function AudioControllers() {
 					<Feather name='chevron-left' size={24} color='#ffffff' />
 				</StyledControllers>
 
-				<StyledControllers primary>
-					<Feather name='play' size={32} color='#ffffff' />
+				<StyledControllers primary onPress={toggleAudio}>
+					<Feather name={ isPlaying ? 'pause' : 'play'} size={32} color='#ffffff' />
 				</StyledControllers>
 
 				<StyledControllers>
