@@ -11,28 +11,24 @@ export function Playlist () {
         }
     ]
     
-    function RenderItem ({ item }) {
-        return (
-            <StyledPlaylist id={item.id}>
-                <StyledAlbumImage source={{
-                    uri: 'https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg'
-                }}/>
-
-                <StyledItemInfo>
-                    <StyledItemInfoTitle>{item.title}</StyledItemInfoTitle>
-                    <StyledItemInfoDate>{item.date}</StyledItemInfoDate>
-                </StyledItemInfo>
-            </StyledPlaylist>
-        )
-    }
-    
     return (
         <ScrollView>
             <FlatList
                 data={dataMock}
                 keyExtractor={(item) => item.id}
                 ItemSeparatorComponent={() => <StyledItemSeparator/>}
-                renderItem={(item) => <RenderItem {...item}/>}
+                renderItem={({ item }) => (
+                    <StyledPlaylist id={item.id}>
+                        <StyledAlbumImage source={{
+                            uri: 'https://complianz.io/wp-content/uploads/2019/03/placeholder-300x202.jpg'
+                        }}/>
+
+                        <StyledItemInfo>
+                            <StyledItemInfoTitle>{item.title}</StyledItemInfoTitle>
+                            <StyledItemInfoDate>{item.date}</StyledItemInfoDate>
+                        </StyledItemInfo>
+                    </StyledPlaylist>
+                )}
             />
         </ScrollView>
     )
