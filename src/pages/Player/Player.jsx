@@ -6,7 +6,6 @@ import { AudioControllers } from '../../components/AudioControllers/AudioControl
 import { Header } from '../../components/Header/Header';
 import ActionSheet from 'react-native-actions-sheet';
 import { Dimensions } from 'react-native';
-import { Text } from 'react-native';
 import { Playlist } from '../../components/Playlist/Playlist';
 
 export function Player() {
@@ -31,5 +30,5 @@ export function Player() {
 				</ActionSheet>
 			</SafeAreaView>
 		</SafeAreaProvider>
-	);
+	)
 }
